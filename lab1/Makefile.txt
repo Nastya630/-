@@ -1,0 +1,19 @@
+# Makefile
+.PHONY: run clean
+
+CFLAGS= -g -O2
+
+run: main
+	./$<
+
+main: main.o fact.o
+	$(CC) $(CFLAGS) -o $@ $?
+
+%.o : %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
+clean:
+	rm -rf *.o *~ main
+asm:
+	gcc -S main.s main.c -O2
+
