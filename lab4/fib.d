@@ -7,8 +7,9 @@ int[] fibonacci(int n) {
     if (n == 1) return [0];
 
     int[] fibs = [0, 1];
+    fibs.length = n;
     for (int i = 2; i < n; i++) {
-        fibs ~= fibs[$-1] + fibs[$-2];
+        fibs[i] = fibs[i-1] + fibs[i-2];
     }
     return fibs;
 }
